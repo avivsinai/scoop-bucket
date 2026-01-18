@@ -1,23 +1,15 @@
 {
-    "version": "0.5.1",
-    "description": "CLI for Bitbucket Cloud & Data Center - manage repos, PRs, and pipelines from the terminal",
-    "homepage": "https://github.com/avivsinai/bitbucket-cli",
-    "license": "MIT",
+    "version": "0.5.2",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/avivsinai/bitbucket-cli/releases/download/v0.5.1/bkt_0.5.1_windows_x86_64.zip",
-            "hash": "f92005a655052504e375464acbee192c46ed67af0131cfdac40755aed333f6b9"
+            "url": "https://github.com/avivsinai/bitbucket-cli/releases/download/v0.5.2/bkt_0.5.2_windows_x86_64.zip",
+            "bin": [
+                "bkt.exe"
+            ],
+            "hash": "2878e7c4590c374abbf51c19ee34630c8d9ec89b08b910df6a2eaaf22c6ceff0"
         }
     },
-    "bin": "bkt.exe",
-    "checkver": {
-        "github": "https://github.com/avivsinai/bitbucket-cli"
-    },
-    "autoupdate": {
-        "architecture": {
-            "64bit": {
-                "url": "https://github.com/avivsinai/bitbucket-cli/releases/download/v$version/bkt_$version_windows_x86_64.zip"
-            }
-        }
-    }
+    "homepage": "https://github.com/avivsinai/bitbucket-cli",
+    "license": "MIT",
+    "description": "CLI for Bitbucket Cloud \u0026 Data Center - manage repos, PRs, and pipelines"
 }
