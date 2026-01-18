@@ -1,0 +1,29 @@
+# Secrets and credentials
+*.pem
+*.key
+.env
+.env.*
+!.env.example
+secrets/
+credentials/
+*.secret
+*_secret*
+token*
+*.token
+GITHUB_TOKEN
+SCOOP_*_TOKEN
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Local testing
+.local/
+tmp/

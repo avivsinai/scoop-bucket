@@ -1,0 +1,27 @@
+title = "Gitleaks Configuration for Scoop Bucket"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "github-pat-fine-grained"
+description = "GitHub Fine-Grained Personal Access Token"
+regex = '''github_pat_[0-9a-zA-Z_]{22,}'''
+keywords = ["github_pat_"]
+
+[[rules]]
+id = "github-pat-classic"
+description = "GitHub Classic Personal Access Token"
+regex = '''ghp_[0-9a-zA-Z]{36,}'''
+keywords = ["ghp_"]
+
+[allowlist]
+description = "Allow legitimate Scoop manifest patterns"
+paths = [
+  '''bucket/.*\.json$''',
+]
+regexTarget = "match"
+regexes = [
+  '''\"hash\":\s*\"[a-f0-9]{64}\"''',
+  '''\"url\":\s*\"https://github\.com/''',
+]
