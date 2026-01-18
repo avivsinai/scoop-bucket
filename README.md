@@ -7,7 +7,7 @@ Scoop bucket for [avivsinai](https://github.com/avivsinai) CLI tools.
 | App | Binary | Description |
 |-----|--------|-------------|
 | `bitbucket-cli` | `bkt.exe` | CLI for Bitbucket Cloud & Data Center |
-| `jenkins-cli` | `jk.exe` | CLI for Jenkins controllers |
+| `jk` | `jk.exe` | CLI for Jenkins controllers |
 
 ## Installation
 
@@ -17,7 +17,7 @@ scoop bucket add avivsinai https://github.com/avivsinai/scoop-bucket
 
 # Install apps
 scoop install bitbucket-cli
-scoop install jenkins-cli
+scoop install jk
 ```
 
 ## Usage
@@ -41,14 +41,14 @@ jk run list
 ```powershell
 scoop update
 scoop update bitbucket-cli
-scoop update jenkins-cli
+scoop update jk
 ```
 
 ## Uninstalling
 
 ```powershell
 scoop uninstall bitbucket-cli
-scoop uninstall jenkins-cli
+scoop uninstall jk
 scoop bucket rm avivsinai  # optional
 ```
 
