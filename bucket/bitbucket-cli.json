@@ -6,7 +6,7 @@
             "bin": [
                 "bkt.exe"
             ],
-            "hash": "a9ed2c6565bce8cd6f5fc03dcd86b5580b048bfb10bf16805536f7a0a9d45575"
+            "hash": "be478e09973518bc71313ea7ca5148aa8f37e4e6ce43599b0eef325cb0a626a6"
         }
     },
     "homepage": "https://github.com/avivsinai/bitbucket-cli",
