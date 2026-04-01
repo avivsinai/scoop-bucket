@@ -1,12 +1,12 @@
 {
-    "version": "0.2.41",
+    "version": "0.2.42",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/avivsinai/yoetz/releases/download/v0.2.41/yoetz-x86_64-pc-windows-msvc.zip",
+            "url": "https://github.com/avivsinai/yoetz/releases/download/v0.2.42/yoetz-x86_64-pc-windows-msvc.zip",
             "bin": [
                 "yoetz.exe"
             ],
-            "hash": "28876fb3d6eab7495ca8eb8b54ab2d07883beebefce0ab8f9c009fac5f57c921"
+            "hash": "7a9004fb1062477e3f39cf8382c5a54f095aa7364d28d6d06a8dcc24664be964"
         }
     },
     "homepage": "https://github.com/avivsinai/yoetz",
