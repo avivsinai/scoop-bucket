@@ -1,0 +1,15 @@
+{
+    "version": "0.8.3",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/avivsinai/shaon/releases/download/v0.8.3/shaon-x86_64-pc-windows-msvc.zip",
+            "bin": [
+                "shaon.exe"
+            ],
+            "hash": "3320ee3f6cd4dbf118ca0ae31b4b416fb15bd76f594a41868400c05d7234bc1b"
+        }
+    },
+    "homepage": "https://github.com/avivsinai/shaon",
+    "license": "MIT",
+    "description": "Automate Hilanet attendance, payslips, salary, and reports for your own account"
+}
