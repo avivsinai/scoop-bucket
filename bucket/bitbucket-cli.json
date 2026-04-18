@@ -1,12 +1,12 @@
 {
-    "version": "0.25.0",
+    "version": "0.26.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/avivsinai/bitbucket-cli/releases/download/v0.25.0/bkt_0.25.0_windows_x86_64.zip",
+            "url": "https://github.com/avivsinai/bitbucket-cli/releases/download/v0.26.0/bkt_0.26.0_windows_x86_64.zip",
             "bin": [
                 "bkt.exe"
             ],
-            "hash": "b318b08f6e21b9f36f8aee9b2d9bc7b8fca42a7060e21bbe030e526e66a5e34d"
+            "hash": "a4cfd5a5764d6946381062b93f95b8b9a2174955fb8c4b2dc6bf06a8c4f3c327"
         }
     },
     "homepage": "https://github.com/avivsinai/bitbucket-cli",
