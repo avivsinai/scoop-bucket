@@ -1,12 +1,12 @@
 {
-    "version": "0.9.2",
+    "version": "0.9.3",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/avivsinai/shaon/releases/download/v0.9.2/shaon-x86_64-pc-windows-msvc.zip",
+            "url": "https://github.com/avivsinai/shaon/releases/download/v0.9.3/shaon-x86_64-pc-windows-msvc.zip",
             "bin": [
                 "shaon.exe"
             ],
-            "hash": "2be761395f2befa39e5c610a54f4530dd984b42cc4202bd564e070ca9b470759"
+            "hash": "3107aaa225c6bac2233f811053bc8374948e84cb5331d8df2a391c82900ecad9"
         }
     },
     "homepage": "https://github.com/avivsinai/shaon",
