@@ -8,6 +8,8 @@ Scoop bucket for [avivsinai](https://github.com/avivsinai) CLI tools.
 |-----|--------|-------------|
 | `bitbucket-cli` | `bkt.exe` | CLI for Bitbucket Cloud & Data Center |
 | `jk` | `jk.exe` | CLI for Jenkins controllers |
+| `shaon` | `shaon.exe` | Automate Hilanet attendance, payslips, salary, and reports |
+| `yoetz` | `yoetz.exe` | Fast CLI-first LLM council, bundler, and multimodal gateway |
 
 ## Installation
 
@@ -18,6 +20,8 @@ scoop bucket add avivsinai https://github.com/avivsinai/scoop-bucket
 # Install apps
 scoop install bitbucket-cli
 scoop install jk
+scoop install shaon
+scoop install yoetz
 ```
 
 ## Usage
@@ -34,6 +38,12 @@ bkt pr list
 jk --help
 jk auth login https://jenkins.example.com
 jk run list
+
+# Shaon
+shaon --help
+
+# Yoetz
+yoetz --help
 ```
 
 ## Updating
@@ -42,6 +52,8 @@ jk run list
 scoop update
 scoop update bitbucket-cli
 scoop update jk
+scoop update shaon
+scoop update yoetz
 ```
 
 ## Uninstalling
@@ -49,6 +61,8 @@ scoop update jk
 ```powershell
 scoop uninstall bitbucket-cli
 scoop uninstall jk
+scoop uninstall shaon
+scoop uninstall yoetz
 scoop bucket rm avivsinai  # optional
 ```
 
@@ -56,6 +70,8 @@ scoop bucket rm avivsinai  # optional
 
 - [bitbucket-cli on GitHub](https://github.com/avivsinai/bitbucket-cli)
 - [jenkins-cli on GitHub](https://github.com/avivsinai/jenkins-cli)
+- [shaon on GitHub](https://github.com/avivsinai/shaon)
+- [yoetz on GitHub](https://github.com/avivsinai/yoetz)
 - [Homebrew tap](https://github.com/avivsinai/homebrew-tap) (macOS/Linux)
 
 ## License
