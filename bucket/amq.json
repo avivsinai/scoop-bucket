@@ -1,0 +1,15 @@
+{
+    "version": "0.66.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/avivsinai/agent-message-queue/releases/download/v0.66.0/amq_0.66.0_windows_amd64.zip",
+            "bin": [
+                "amq.exe"
+            ],
+            "hash": "8552fe50107dc7346272d25101f33337e408375d45ed01f6c06f3c0b9f637749"
+        }
+    },
+    "homepage": "https://github.com/avivsinai/agent-message-queue",
+    "license": "MIT",
+    "description": "File-based message queue for local agent-to-agent communication (Maildir-style)"
+}
