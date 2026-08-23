@@ -15,9 +15,9 @@ EXPECTED = {
     "amq.json": {
         "url": (
             "https://github.com/avivsinai/agent-message-queue/releases/"
-            "download/v0.66.0/amq_0.66.0_windows_amd64.zip"
+            "download/v0.68.0/amq_0.68.0_windows_amd64.zip"
         ),
-        "hash": "8552fe50107dc7346272d25101f33337e408375d45ed01f6c06f3c0b9f637749",
+        "hash": "cdbb6427a16b030c4ce465a04820c112050f3faf157008c9b7a06f401cda32bf",
     },
     "sabx.json": {
         "url": (
