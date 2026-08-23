@@ -1,32 +1,18 @@
 #!/usr/bin/env python3
-"""Validate Scoop bucket manifests: parse, expected amq/sabx fields, zip URLs."""
+"""Validate Scoop bucket manifests against their own live 64bit assets."""
 
 from __future__ import annotations
 
+import hashlib
 import json
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 BUCKET_DIR = REPO_ROOT / "bucket"
-
-EXPECTED = {
-    "amq.json": {
-        "url": (
-            "https://github.com/avivsinai/agent-message-queue/releases/"
-            "download/v0.68.0/amq_0.68.0_windows_amd64.zip"
-        ),
-        "hash": "cdbb6427a16b030c4ce465a04820c112050f3faf157008c9b7a06f401cda32bf",
-    },
-    "sabx.json": {
-        "url": (
-            "https://github.com/avivsinai/sabx/releases/"
-            "download/v0.1.11/sabx_0.1.11_windows_x86_64.zip"
-        ),
-        "hash": "f5d15a9d89546de939e88ab7db0688f23fee7ffca9cbb37c0c35673456d7f9da",
-    },
-}
+CHUNK_SIZE = 1024 * 1024
 
 
 def parse_manifests() -> dict[str, dict]:
@@ -40,24 +26,6 @@ def parse_manifests() -> dict[str, dict]:
             manifests[path.name] = json.load(handle)
         print(f"parsed {path.name}")
     return manifests
-
-
-def check_expected(manifests: dict[str, dict]) -> list[str]:
-    """Return mismatch messages for amq.json and sabx.json hashes and URLs."""
-    errors: list[str] = []
-    for filename, expected in EXPECTED.items():
-        if filename not in manifests:
-            errors.append(f"{filename}: missing")
-            continue
-        actual_url = manifests[filename]["architecture"]["64bit"]["url"]
-        actual_hash = manifests[filename]["architecture"]["64bit"]["hash"]
-        if actual_url != expected["url"]:
-            errors.append(f"{filename}: url mismatch")
-        if actual_hash != expected["hash"]:
-            errors.append(f"{filename}: hash mismatch")
-        if actual_url == expected["url"] and actual_hash == expected["hash"]:
-            print(f"{filename}: url and hash match")
-    return errors
 
 
 def check_url(url: str) -> str | None:
@@ -81,14 +49,67 @@ def check_url(url: str) -> str | None:
     return f"{url}: expected HTTP 200 or 302, got {status_line or result.stdout.strip()!r}"
 
 
+def downloaded_sha256(url: str) -> str:
+    """Return the SHA256 hex digest of the file at url (follows redirects)."""
+    with tempfile.TemporaryDirectory() as tmp:
+        dest = Path(tmp) / "asset.zip"
+        result = subprocess.run(
+            ["curl", "-sL", "--fail", "-o", str(dest), url],
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode != 0:
+            raise RuntimeError(
+                f"{url}: download failed ({result.returncode}): {result.stderr.strip()}"
+            )
+        hasher = hashlib.sha256()
+        with dest.open("rb") as handle:
+            while True:
+                chunk = handle.read(CHUNK_SIZE)
+                if not chunk:
+                    break
+                hasher.update(chunk)
+        return hasher.hexdigest()
+
+
+def check_manifest(filename: str, data: dict) -> list[str]:
+    """Validate one manifest's 64bit url reachability and hash against the live zip."""
+    errors: list[str] = []
+    try:
+        arch = data["architecture"]["64bit"]
+        url = arch["url"]
+        expected_hash = arch["hash"]
+    except KeyError as exc:
+        return [f"{filename}: missing {exc}"]
+
+    url_error = check_url(url)
+    if url_error:
+        errors.append(f"{filename}: {url_error}")
+        return errors
+
+    try:
+        actual_hash = downloaded_sha256(url)
+    except RuntimeError as exc:
+        errors.append(f"{filename}: {exc}")
+        return errors
+
+    if actual_hash.lower() != expected_hash.lower():
+        errors.append(
+            f"{filename}: hash mismatch: manifest={expected_hash} downloaded={actual_hash}"
+        )
+        return errors
+
+    print(f"{filename}: url and hash match downloaded zip")
+    return errors
+
+
 def main() -> int:
-    """Run parse, exact-value, and URL checks. Exit 1 on any failure."""
+    """Parse every manifest and check each 64bit url + hash. Exit 1 on any failure."""
     manifests = parse_manifests()
-    errors = check_expected(manifests)
-    for expected in EXPECTED.values():
-        url_error = check_url(expected["url"])
-        if url_error:
-            errors.append(url_error)
+    errors: list[str] = []
+    for filename, data in manifests.items():
+        errors.extend(check_manifest(filename, data))
     if errors:
         for error in errors:
             print(error, file=sys.stderr)
