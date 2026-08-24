@@ -1,15 +1,22 @@
 {
-    "version": "0.68.0",
+    "version": "0.69.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/avivsinai/agent-message-queue/releases/download/v0.68.0/amq_0.68.0_windows_amd64.zip",
+            "url": "https://github.com/avivsinai/agent-message-queue/releases/download/v0.69.0/amq_0.69.0_windows_amd64.zip",
             "bin": [
                 "amq.exe"
             ],
-            "hash": "cdbb6427a16b030c4ce465a04820c112050f3faf157008c9b7a06f401cda32bf"
+            "hash": "eee61094ed25ab8a1a4659c2169ed8c0eab6f0587a80d899c8937a347c45fde1"
+        },
+        "arm64": {
+            "url": "https://github.com/avivsinai/agent-message-queue/releases/download/v0.69.0/amq_0.69.0_windows_arm64.zip",
+            "bin": [
+                "amq.exe"
+            ],
+            "hash": "a54cbf947dbd6122e1920982496f22339d9d4dbe15e5de0e95171d220f96dad8"
         }
     },
     "homepage": "https://github.com/avivsinai/agent-message-queue",
     "license": "MIT",
-    "description": "File-based message queue for local agent-to-agent communication (Maildir-style)"
+    "description": "Agent Message Queue - file-based inter-agent messaging for Claude Code and Codex CLI"
 }
