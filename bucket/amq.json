@@ -1,19 +1,19 @@
 {
-    "version": "0.127.0",
+    "version": "0.127.1",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/avivsinai/agent-message-queue/releases/download/v0.127.0/amq_0.127.0_windows_amd64.zip",
+            "url": "https://github.com/avivsinai/agent-message-queue/releases/download/v0.127.1/amq_0.127.1_windows_amd64.zip",
             "bin": [
                 "amq.exe"
             ],
-            "hash": "1b929dcdd3e1896fc743f6106d57cb7fdebb73248b334c98e9dbed8b02709c47"
+            "hash": "fb1581254607107ce24b42de8514da3a9b65fd4bfe51ab5784cd24de8797e965"
         },
         "arm64": {
-            "url": "https://github.com/avivsinai/agent-message-queue/releases/download/v0.127.0/amq_0.127.0_windows_arm64.zip",
+            "url": "https://github.com/avivsinai/agent-message-queue/releases/download/v0.127.1/amq_0.127.1_windows_arm64.zip",
             "bin": [
                 "amq.exe"
             ],
-            "hash": "5fa5c24ffcd122e2c70483b3fcbeea38d66f0476c58fe05bbf143975dea59004"
+            "hash": "24499aa8b131064a81ae1717de0a9ac552065caef1660e87b6fe4f00d9799e07"
         }
     },
     "homepage": "https://github.com/avivsinai/agent-message-queue",
