@@ -1,12 +1,12 @@
 {
-    "version": "0.0.45",
+    "version": "0.0.46",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/avivsinai/jenkins-cli/releases/download/v0.0.45/jk_0.0.45_windows_x86_64.zip",
+            "url": "https://github.com/avivsinai/jenkins-cli/releases/download/v0.0.46/jk_0.0.46_windows_x86_64.zip",
             "bin": [
                 "jk.exe"
             ],
-            "hash": "1e2f21a259d8e7e8308bd4612cf577b5899a8bb9fd8b49cfe52cdd9e88cbeda1"
+            "hash": "e60386ff5168f48b6966e191a447ddf4327f9540cdca746324f6294bdff33589"
         }
     },
     "homepage": "https://github.com/avivsinai/jenkins-cli",
